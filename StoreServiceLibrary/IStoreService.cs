@@ -27,7 +27,7 @@ namespace StoreServiceLibrary
         bool BuyProduct(string username, string productName, int quantity);
 
         [OperationContract]
-        IEnumerable<CustomerProduct> GetAllOrders(string username);
+        IEnumerable<Order> GetAllOrders(string username);
 
         [OperationContract]
         double GetBalance(string username);

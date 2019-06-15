@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace StoreServiceWpfClient.StoreServiceHost {
     
     
@@ -125,6 +127,11 @@ namespace StoreServiceWpfClient.StoreServiceHost {
         
         public System.Threading.Tasks.Task<double> GetBalanceAsync(string username) {
             return base.Channel.GetBalanceAsync(username);
+        }
+
+        internal object GetOrders(string username)
+        {
+            throw new NotImplementedException();
         }
     }
 }

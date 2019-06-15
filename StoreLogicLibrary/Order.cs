@@ -15,6 +15,8 @@ namespace StorageLogicLibrary
     public partial class Order
     {
 
+        public Order() { }
+
         public Order(int id, string username, DateTime orderDate, string product, int amount, Decimal price)
         {
 

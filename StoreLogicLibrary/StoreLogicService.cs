@@ -56,12 +56,12 @@ namespace StoreLogicLibrary
             return StoreLogicRepository.GetProducts().Where(p => p.Stock > 0);
         }
 
-        public static IEnumerable<CustomerProduct> GetAllOrders(string username)
+        public static IEnumerable<Order> GetAllOrders(string username)
         {
             try
             {
-                var c = StoreLogicRepository.GetCustomer(username);
-                return c.Orders;
+                return StoreLogicRepository.GetOrders(username);
+             
             }
             catch (NullReferenceException)
             {

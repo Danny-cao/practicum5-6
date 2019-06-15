@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StorageLogicLibrary;
+using System.Diagnostics;
 
 namespace StoreLogicLibrary
 {
@@ -61,7 +62,7 @@ namespace StoreLogicLibrary
                 } else
                 {
 
-                    return new Customer(u.Username);
+                    return new Customer(u.Username, Convert.ToDouble(u.Money));
 
                 }
                
@@ -97,7 +98,7 @@ namespace StoreLogicLibrary
                 int id = (from value in ctx.User
                           select value.Id).Max() + 1;
 
-                User u = new User(id, c.Username, c.Password, c.Balance.ToString());
+                User u = new User(id, c.Username, c.Password, "1000");
 
                 ctx.User.Add(u);
                 ctx.SaveChanges();
@@ -112,6 +113,8 @@ namespace StoreLogicLibrary
 
         public static IEnumerable<StoreProduct> GetProducts()
         {
+
+            Products.Clear();
 
            using (dotNETP5Entities ctx = new dotNETP5Entities()) {
 
@@ -147,6 +150,22 @@ namespace StoreLogicLibrary
                 Order o = new Order(id, user, now, product, amount, price);
 
                 ctx.Order.Add(o);
+
+                User u = (from value in ctx.User
+                          where value.Username.Equals(user)
+                          select value).FirstOrDefault();
+
+                Decimal temp = Convert.ToDecimal(u.Money);
+                temp -= (amount * price);
+
+                u.Money = temp.ToString();
+
+                Product s = (from value in ctx.Product
+                                  where value.Name.Equals(product)
+                                  select value).FirstOrDefault();
+
+                s.Stock -= amount;
+
                 ctx.SaveChanges();
                 return true;
 
@@ -154,12 +173,31 @@ namespace StoreLogicLibrary
 
         }
 
-        /*public static List<Order> GetOrders()
+        public static IEnumerable<Order> GetOrders(string username)
         {
 
             List<Order> Orders = new List<Order>();
 
-        }*/
+            using (dotNETP5Entities ctx = new dotNETP5Entities())
+            {
+
+                var orders = from value in ctx.Order
+                             where value.Username.Equals(username)
+                             select value;
+
+                foreach(Order o in orders)
+                {
+
+                    Orders.Add(o);
+                    //Debug.WriteLine(o.Product);
+
+                }
+
+                return Orders;
+
+            }
+
+        }
 
     }
 }

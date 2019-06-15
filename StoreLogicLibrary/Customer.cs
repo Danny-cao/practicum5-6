@@ -15,18 +15,25 @@ namespace StoreLogicLibrary
         public string Username { get; set; }
 
         [DataMember]
-        public double Balance { get; private set; } = 1000.00;
+        public double Balance { get; private set; }
 
         [DataMember]
         public string Password { get; set; }
 
         [DataMember]
-        public List<CustomerProduct> Orders { get; set; } = new List<CustomerProduct>();
+        public List<Order> Orders { get; set; } = new List<Order>();
 
         public Customer(string username)
         {
             Username = username;
             Password = generatePassword();
+        }
+
+        public Customer(string username, double b)
+        {
+            Username = username;
+            Password = generatePassword();
+            Balance = b;
         }
 
         private string generatePassword()
@@ -47,17 +54,5 @@ namespace StoreLogicLibrary
             return true;
         }
 
-        public void AddOrder(CustomerProduct p)
-        {
-            foreach (var o in Orders)
-            {
-                if (!p.Name.Equals(o.Name)) continue;
-                o.Quantity += p.Quantity;
-                return;
-            }
-
-            Balance -= p.Price * p.Quantity;
-            Orders.Add(p);
-        }
     }
 }

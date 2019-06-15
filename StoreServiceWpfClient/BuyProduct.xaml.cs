@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using WpfApp1;
 using StoreLogicLibrary;
 using StoreServiceWpfClient.StoreServiceHost;
+using StorageLogicLibrary;
 
 namespace StoreServiceWpfClient
 {
@@ -31,12 +32,13 @@ namespace StoreServiceWpfClient
 
         public void Init()
         {
-            // Get the products
-            RefreshProducts();
+                      
             // Get my products
             MyProducts();
             // Balance
             Balance();
+            // Get the products
+            RefreshProducts();
         }
 
         private void refresh_button_Click(object sender, RoutedEventArgs e)
@@ -94,7 +96,7 @@ namespace StoreServiceWpfClient
 
             foreach (var p in storeservice.GetProducts())
             {
-                product_listbox.Items.Add(p.Name + " - €" + p.Price + " - Nog " + p.Stock + " aanwezig");
+                product_listbox.Items.Add(p.Name + " - €" + p.Price + " - nog " + p.Stock + " aanwezig");
             }
         }
 
@@ -117,10 +119,12 @@ namespace StoreServiceWpfClient
             // Get the order for a user
             var orders = storeservice.GetAllOrders(username);
 
+            orders_listbox.Items.Add("test");
+
             // Fix orders
-            foreach (var p in orders)
+            foreach (var o in orders)
             {
-                orders_listbox.Items.Add(p.Name + ", " + p.Quantity);
+                orders_listbox.Items.Add(o.Name + ", " + o.Quantity);
             }
         }
 

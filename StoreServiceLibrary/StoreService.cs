@@ -40,7 +40,7 @@ namespace StoreServiceLibrary
             return StoreLogicService.BuyProduct(username, productName, quantity);
         }
 
-        public IEnumerable<CustomerProduct> GetAllOrders(string username)
+        public IEnumerable<Order> GetAllOrders(string username)
         {
             return StoreLogicService.GetAllOrders(username);
         }
@@ -49,5 +49,6 @@ namespace StoreServiceLibrary
         {
             return StoreLogicService.GetBalance(username);
         }
+
     }
 }

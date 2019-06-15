@@ -36,7 +36,7 @@ namespace StoreServiceWpfClient
             SubWindow.username_label.Content = username_label.Content.ToString();
             SubWindow.saldo_label.Content = "€" + storeservice.GetBalance(username_label.Content.ToString());
 
-            // Alle gekochte producten ophalen en zetten
+                       // Alle gekochte producten ophalen en zetten
             foreach (var p in
                 storeservice.GetAllOrders(username_label.Content.ToString()))
             {

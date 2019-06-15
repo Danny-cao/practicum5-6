@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
-    <Compile Include="CustomerProduct.cs" />
     <Compile Include="model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
