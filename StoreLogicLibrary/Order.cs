@@ -14,18 +14,23 @@ namespace StorageLogicLibrary
     
     public partial class Order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+
+        public Order(int id, string username, DateTime orderDate, string product, int amount, Decimal price)
         {
-            this.ProductOrder = new HashSet<ProductOrder>();
+
+            this.Id = id;
+            this.Username = username;
+            this.OrderDate = orderDate;
+            this.Product = product;
+            this.amount = amount;
+            this.price = price;
+
         }
-    
         public int Id { get; set; }
-        public Nullable<int> Username { get; set; }
-        public Nullable<System.DateTime> OrderDate { get; set; }
-    
-        public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductOrder> ProductOrder { get; set; }
+        public string Username { get; set; }
+        public System.DateTime OrderDate { get; set; }
+        public string Product { get; set; }
+        public Nullable<int> amount { get; set; }
+        public Nullable<decimal> price { get; set; }
     }
 }

@@ -13,7 +13,8 @@ namespace StoreLogicLibrary
 
         public static bool VerifyLogin(string username, string password)
         {
-            return StoreLogicRepository.Customers.Any(c => c.VerifyLogin(username, password));
+            //return StoreLogicRepository.Customers.Any(c => c.VerifyLogin(username, password));
+            return StoreLogicRepository.checkCustomer(username, password);
         }
 
         public static bool RegisterCustomer(Customer c)
@@ -36,7 +37,12 @@ namespace StoreLogicLibrary
 
                 if (!(p.CheckStock(quantity) && c.CheckBalance(p.Price * quantity))) return false;
                 p.LowerStock(quantity);
-                c.AddOrder(new CustomerProduct(p.Name, quantity, p.Price));
+
+                Decimal dPrice = (decimal)p.Price * quantity;
+
+                StoreLogicRepository.AddOrder(username, productNaam, quantity, dPrice);
+
+                //c.AddOrder(new CustomerProduct(p.Name, quantity, p.Price));
                 return true;
             }
             catch (NullReferenceException)

@@ -27,7 +27,6 @@ namespace StorageLogicLibrary
     
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductOrder> ProductOrder { get; set; }
         public virtual DbSet<Store> Store { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

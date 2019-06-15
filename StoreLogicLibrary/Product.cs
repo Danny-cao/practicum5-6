@@ -14,12 +14,6 @@ namespace StorageLogicLibrary
     
     public partial class Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            this.ProductOrder = new HashSet<ProductOrder>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
@@ -27,7 +21,5 @@ namespace StorageLogicLibrary
         public int StoreId { get; set; }
     
         public virtual Store Store { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductOrder> ProductOrder { get; set; }
     }
 }

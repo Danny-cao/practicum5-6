@@ -14,30 +14,20 @@ namespace StorageLogicLibrary
     
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+
+        public User() { }
+
+        public User(int i, string u, string p, string m)
         {
-            this.Order = new HashSet<Order>();
-        }
-
-        public User(int i. string u, string p, double m)
-        {
-
-            this.Order = new HashSet<Order>();
-
             this.Id = i;
             this.Username = u;
             this.Password = p;
             this.Money = m;
 
         }
-    
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public double Money { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public string Money { get; set; }
     }
 }
