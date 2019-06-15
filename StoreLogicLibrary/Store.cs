@@ -12,22 +12,18 @@ namespace StorageLogicLibrary
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Store
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Store()
         {
-            this.ProductOrder = new HashSet<ProductOrder>();
+            this.Product = new HashSet<Product>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
-        public int Stock { get; set; }
-        public int StoreId { get; set; }
     
-        public virtual Store Store { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductOrder> ProductOrder { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

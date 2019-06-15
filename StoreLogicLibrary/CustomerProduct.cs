@@ -9,7 +9,7 @@ using StoreLogicLibrary;
 namespace StorageLogicLibrary
 {
     [DataContract]
-    public class CustomerProduct : Product
+    public class CustomerProduct : Product2
     {
         [DataMember]
         public int Quantity { set; get; }
