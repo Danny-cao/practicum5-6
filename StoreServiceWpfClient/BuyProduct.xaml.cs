@@ -96,7 +96,7 @@ namespace StoreServiceWpfClient
 
             foreach (var p in storeservice.GetProducts())
             {
-                product_listbox.Items.Add(p.Name + " - €" + p.Price + " - nog " + p.Stock + " aanwezig");
+               product_listbox.Items.Add(p.Name + " - €" + p.Price + " - nog " + p.Stock + " aanwezig");
             }
         }
 
@@ -124,7 +124,7 @@ namespace StoreServiceWpfClient
             // Fix orders
             foreach (var o in orders)
             {
-                orders_listbox.Items.Add(o.Name + ", " + o.Quantity);
+                orders_listbox.Items.Add(o.Name + ", " + o.Price + ", " + o.Quantity);
             }
         }
 

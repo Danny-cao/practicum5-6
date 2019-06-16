@@ -122,19 +122,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\StoreServiceHost\service.wsdl" />
-    <None Include="Connected Services\StoreServiceHost\service.xsd">
+    <None Include="Connected Services\StoreServiceHost\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\StoreServiceHost\service1.xsd">
+    <None Include="Connected Services\StoreServiceHost\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\StoreServiceHost\StorageLogicLibrary.xsd">
+    <None Include="Connected Services\StoreServiceHost\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\StoreServiceHost\StoreLogicLibrary.xsd">
+    <None Include="Connected Services\StoreServiceHost\item3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\StoreServiceHost\StoreService.wsdl" />
     <None Include="Properties\DataSources\StorageLogicLibrary.CustomerProduct.datasource" />
     <None Include="Properties\DataSources\StorageLogicLibrary.StoreProduct.datasource" />
     <None Include="Properties\Settings.settings">
@@ -161,21 +161,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\StoreServiceHost\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\StoreServiceHost\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\StoreServiceHost\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\StoreServiceHost\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\StoreLogicLibrary\StoreLogicLibrary.csproj">
       <Project>{c3f8b4a6-5035-4bd3-86e6-c131aa3363ed}</Project>
       <Name>StoreLogicLibrary</Name>
@@ -188,6 +173,24 @@
       <Project>{04e84b1b-92e0-4891-acdf-ff541c2680a7}</Project>
       <Name>StoreServiceLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\StoreServiceHost\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StoreServiceHost\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StoreServiceHost\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StoreServiceHost\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StoreServiceHost\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
