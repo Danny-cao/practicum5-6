@@ -119,12 +119,10 @@ namespace StoreServiceWpfClient
             // Get the order for a user
             var orders = storeservice.GetAllOrders(username);
 
-            orders_listbox.Items.Add("test");
-
             // Fix orders
             foreach (var o in orders)
             {
-                orders_listbox.Items.Add(o.Name + ", " + o.Price + ", " + o.Quantity);
+                orders_listbox.Items.Add(o.Product + ", " + o.amount + ", " + o.price);
             }
         }
 

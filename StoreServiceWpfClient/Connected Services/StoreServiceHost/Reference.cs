@@ -42,10 +42,10 @@ namespace StoreServiceWpfClient.StoreServiceHost
         System.Threading.Tasks.Task<bool> BuyProductAsync(string username, string productName, int quantity);
 
         [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IStoreService/GetAllOrders", ReplyAction = "http://tempuri.org/IStoreService/GetAllOrdersResponse")]
-        StorageLogicLibrary.CustomerProduct[] GetAllOrders(string username);
+        StorageLogicLibrary.Order[] GetAllOrders(string username);
 
         [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IStoreService/GetAllOrders", ReplyAction = "http://tempuri.org/IStoreService/GetAllOrdersResponse")]
-        System.Threading.Tasks.Task<StorageLogicLibrary.CustomerProduct[]> GetAllOrdersAsync(string username);
+        System.Threading.Tasks.Task<StorageLogicLibrary.Order[]> GetAllOrdersAsync(string username);
 
         [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IStoreService/GetBalance", ReplyAction = "http://tempuri.org/IStoreService/GetBalanceResponse")]
         double GetBalance(string username);
@@ -128,12 +128,12 @@ namespace StoreServiceWpfClient.StoreServiceHost
             return base.Channel.BuyProductAsync(username, productName, quantity);
         }
 
-        public StorageLogicLibrary.CustomerProduct[] GetAllOrders(string username)
+        public StorageLogicLibrary.Order[] GetAllOrders(string username)
         {
             return base.Channel.GetAllOrders(username);
         }
 
-        public System.Threading.Tasks.Task<StorageLogicLibrary.CustomerProduct[]> GetAllOrdersAsync(string username)
+        public System.Threading.Tasks.Task<StorageLogicLibrary.Order[]> GetAllOrdersAsync(string username)
         {
             return base.Channel.GetAllOrdersAsync(username);
         }
